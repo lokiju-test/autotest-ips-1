@@ -3,6 +3,6 @@
         console.log(`callback ${str}`)
     }
     console.log('start')
-    const timer
-    console.log('start')
+    const timer = setTimeout(callback, 1000, 'foo', 'bar')
+    console.log('end')
 }
