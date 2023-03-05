@@ -1,9 +1,7 @@
 {
-    let age: number = 18
-
-    let ageFunction = function (a: number) {
-        console.log(a < 18 ? 'Страница не доступна' : 'Страница доступна')
+    const ageFunction = function (age: number) {
+        console.log(age < 18 ? 'Страница не доступна' : 'Страница доступна')
     }
 
-    ageFunction(age)
+    ageFunction(18)
 }

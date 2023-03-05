@@ -1,8 +1,15 @@
 {
-    const callback = function (str: string) {
-        console.log(`callback ${str}`)
+    const firstNumber = 6
+    const secondNumber = 2
+    function calc(x: number, y: number, callback: () => void) {
+        console.log(`Первый операнд: ${x}`)
+        console.log(`Второй операнд: ${y}`)
+        console.log(`Результат выражения: ${callback()}`)
+        console.log('')
     }
-    console.log('start')
-    const timer = setTimeout(callback, 1000, 'foo', 'bar')
-    console.log('end')
+
+    calc(firstNumber, secondNumber, () => { return firstNumber + secondNumber })
+    calc(firstNumber, secondNumber, () => { return firstNumber - secondNumber })
+    calc(firstNumber, secondNumber, () => { return firstNumber * secondNumber })
+    calc(firstNumber, secondNumber, () => { return firstNumber / secondNumber })
 }
