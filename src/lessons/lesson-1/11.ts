@@ -1,7 +1,7 @@
 {
     const firstNumber = 6
     const secondNumber = 2
-    function calc(x: number, y: number, callback: () => number) {
+    function calc(x: number, y: number, callback: () => number): void {
         console.log(`Первый операнд: ${x}`)
         console.log(`Второй операнд: ${y}`)
         console.log(`Результат выражения: ${callback()}`)
