@@ -1,14 +1,15 @@
 {
     class Car {
-        private state: string = 'выключена'
-        public turnOn() {
-            this.state = 'включена'
+        private stateIsOn: boolean = false
+        public getState() {
+            if (this.stateIsOn) console.log('Текущее состояние машины включена')
+            else console.log('Текущее состояние машины выключена')
         }
         public turnOff() {
-            this.state = 'выключена'
+            this.stateIsOn = false
         }
-        public getState() {
-            console.log(`Текущее состояние машины ${this.state}`)
+        public turnOn() {
+            this.stateIsOn = true
         }
     }
 
@@ -18,3 +19,5 @@
     car.turnOn()
     car.getState()
 }
+// state поменять на boolean
+// отсортировать методы по алфавиту

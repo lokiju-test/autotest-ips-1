@@ -1,28 +1,26 @@
 {
     class Car {
-        private state: string = 'выключена'
+        private stateIsOn: boolean = false
         private speed: number = 0
-        public turnOn() {
-            this.state = 'включена'
+        public getState() {
+            if (this.stateIsOn) console.log('Текущее состояние машины включена')
+            else console.log('Текущее состояние машины выключена')
+        }
+        private isSpeedCorrect(speed: number) {
+            if (speed >= 0 && speed <= 100) return true
+            return false
         }
         public turnOff() {
-            this.state = 'выключена'
+            this.stateIsOn = false
         }
-        public getState() {
-            console.log(`Текущее состояние машины ${this.state}`)
+        public turnOn() {
+            this.stateIsOn = true
         }
-        public setSpeed(manualSpeed: number) {
-            if (this.state === 'выключена') {
-                console.log(`Текущее состояние машины ${this.state}. Для изменения скорости включите машину.`)
-            } else {
-                if (manualSpeed < 0) {
-                    console.log(`${manualSpeed} меньше минимально допустимой скорости 0`)
-                } else if (manualSpeed > 100) {
-                    console.log(`${manualSpeed} больше максимально допустимой скорости 100`)
-                } else {
-                    this.speed = manualSpeed
-                }
-            }
+        public setSpeed(speed: number) {
+            if (this.isSpeedCorrect(speed) && this.stateIsOn) this.speed = speed
+            else if (this.isSpeedCorrect(speed)) console.log(`Текущее состояние машины выключена. Для изменения скорости включите машину.`)
+            else console.log(`${speed} не входит в границы допустимой скорости от 0 до 100`)
+
             console.log(`Текущая скорость машины ${this.speed}`)
         }
     }
@@ -30,7 +28,11 @@
     const car: Car = new Car()
 
     car.getState()
-    car.turnOn()
+    // car.turnOn()
     car.getState()
-    car.setSpeed(30)
+    car.setSpeed(200)
 }
+// state поменять на boolean
+// отсортировать методы по алфавиту
+// создать отдельный метод для включенности машины
+// меньше условий

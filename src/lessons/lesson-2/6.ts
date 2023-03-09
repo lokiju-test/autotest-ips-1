@@ -1,5 +1,5 @@
 {
-    const promise = new Promise((resolve) => {
+    const promise: Promise<string> = new Promise((resolve) => {
         setTimeout(() => {
             resolve('resolve')
         }, 1000)
